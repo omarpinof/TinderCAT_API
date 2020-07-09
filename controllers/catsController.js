@@ -36,14 +36,16 @@ const catList = async (req, res) => {
 }
 
 const liked = async (req, res) => {
-    const { catId, catIdLiked } = req.body
+    const { catId } = req.query
+    const { catIdLiked } = req.body
     const response = await likedService(catId, catIdLiked)
     res.json(response)
 }
 
 const unliked = async (req, res) => {
-    const { catId, catIdUnliked } = req.body
-    const response = await unlikedService(interaction)
+    const { catId } = req.query
+    const { catIdUnliked } = req.body
+    const response = await unlikedService(catId, catIdUnliked)
     res.json(response)
 }
 
